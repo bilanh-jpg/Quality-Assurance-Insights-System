@@ -174,6 +174,7 @@ a.card:hover .hint,a.card:focus-visible .hint{opacity:1}
 .check input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:#1f8a96}
 .check.bad{color:#c0392b}
 .privacy{margin:0 0 18px;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.howto{margin:0 0 10px;font-weight:600;font-size:15px}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 .btn1,.btn2{font:inherit;font-weight:600;font-size:16px;border-radius:8px;padding:11px 22px;cursor:pointer;border:1px solid var(--accent)}
 .btn1{background:var(--accent);color:#fff}
@@ -401,7 +402,7 @@ footer li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px
       <h3 class="mini" data-en="How to submit">ขั้นตอนการส่ง</h3>
       <ol class="steps2">
         <li><b data-en="Fill in the form">กรอกแบบฟอร์ม</b><span data-en="Complete the dashboard and contact details.">กรอกข้อมูลแดชบอร์ดและผู้ติดต่อให้ครบ</span></li>
-        <li><b data-en="Send the email">กดส่งอีเมล</b><span data-en="Press the button. Your email app opens with the message ready. Press “Send” there as well.">กดปุ่ม ระบบจะเปิดอีเมลของท่านพร้อมข้อความ แล้วกด “ส่ง” ในอีเมลอีกครั้ง</span></li>
+        <li><b data-en="Send the email">กดส่งอีเมล</b><span data-en="Choose Gmail, Outlook or the email app on your device. The message is prepared for you; press “Send” in the email.">เลือกส่งผ่าน Gmail, Outlook หรือโปรแกรมอีเมลในเครื่อง ระบบจะเตรียมข้อความให้ แล้วกด “ส่ง” ในอีเมลอีกครั้ง</span></li>
         <li><b data-en="Wait for review">รอการตรวจสอบ</b><span data-en="The administrators review it before it is displayed.">ผู้ดูแลระบบจะตรวจสอบก่อนนำมาแสดงผล</span></li>
       </ol>
       <div class="sendto"><span data-en="The email will be addressed to:">อีเมลจะส่งถึง:</span><b>bilan.h@phuket.psu.ac.th</b></div>
@@ -421,13 +422,17 @@ footer li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px
           <div class="field" id="w_f_link"><label for="f_link"><span class="lt" data-en="Dashboard link" style="margin:0;color:inherit;font-weight:600;font-size:inherit">ลิงก์แดชบอร์ด</span><em>*</em></label><input id="f_link" type="url" autocomplete="off" placeholder="https://..." data-ph-en="https://..."></div>
           <div class="field" id="w_f_year"><label for="f_year"><span class="lt" data-en="Academic year of the data" style="margin:0;color:inherit;font-weight:600;font-size:inherit">ปีการศึกษาของข้อมูล</span><em>*</em></label><input id="f_year" type="text" autocomplete="off" placeholder="เช่น 2568" data-ph-en="e.g. 2025"></div>
         </div>
-        <div class="field" id="w_f_desc"><label for="f_desc"><span class="lt" data-en="Short description" style="margin:0;color:inherit;font-weight:600;font-size:inherit">คำอธิบายสั้น ๆ</span><em>*</em><span data-en="(what the dashboard shows)">(แดชบอร์ดนี้แสดงอะไร)</span></label><textarea id="f_desc" maxlength="400" placeholder="อธิบายสั้น ๆ ว่าแดชบอร์ดแสดงข้อมูลอะไร ใช้เพื่ออะไร" data-ph-en="Briefly describe what the dashboard shows and its purpose"></textarea></div>
+        <div class="field" id="w_f_desc"><label for="f_desc"><span class="lt" data-en="Short description" style="margin:0;color:inherit;font-weight:600;font-size:inherit">คำอธิบายสั้น ๆ</span><em>*</em><span data-en="(what the dashboard shows)">(แดชบอร์ดนี้แสดงอะไร)</span></label><textarea id="f_desc" maxlength="300" placeholder="อธิบายสั้น ๆ ว่าแดชบอร์ดแสดงข้อมูลอะไร ใช้เพื่ออะไร" data-ph-en="Briefly describe what the dashboard shows and its purpose"></textarea></div>
         <label class="check" id="w_f_ok"><input type="checkbox" id="f_ok"><span data-en="I confirm the dashboard contains no personal data that identifies individuals, and the link opens without logging in.">ข้าพเจ้ายืนยันว่าแดชบอร์ดไม่มีข้อมูลส่วนบุคคลที่ระบุตัวบุคคลได้ และลิงก์เปิดดูได้โดยไม่ต้องล็อกอิน</span></label>
         <p class="privacy" data-en="The name, email and phone you enter are sent by email to the Quality Assurance Unit only to follow up on displaying your dashboard. This page does not store what you enter.">ชื่อ อีเมล และเบอร์โทรที่กรอกจะถูกส่งทางอีเมลถึงงานประกันคุณภาพ เพื่อใช้ติดต่อกลับเรื่องการนำแดชบอร์ดมาแสดงผลเท่านั้น หน้านี้ไม่จัดเก็บข้อมูลที่กรอก</p>
+        <p class="howto" data-en="Choose how to send:">เลือกวิธีส่งอีเมล:</p>
         <div class="actions">
-          <button class="btn1" type="button" id="btnMail" data-en="Open email to send">เปิดอีเมลเพื่อส่ง</button>
+          <button class="btn1" type="button" id="btnGmail" data-en="Send via Gmail">ส่งผ่าน Gmail</button>
+          <button class="btn1" type="button" id="btnOutlook" data-en="Send via Outlook">ส่งผ่าน Outlook</button>
+          <button class="btn2" type="button" id="btnMail" data-en="Email app on this device">โปรแกรมอีเมลในเครื่อง</button>
           <button class="btn2" type="button" id="btnCopy" data-en="Copy message">คัดลอกข้อความ</button>
         </div>
+        <p class="privacy" style="margin:12px 0 0" data-en="Gmail and Outlook open a compose window in a new tab: sign in to your email account and press “Send”. If you are unsure which to use, choose “Copy message” and paste it into your own email.">Gmail และ Outlook จะเปิดหน้าเขียนอีเมลในแท็บใหม่ ให้ล็อกอินบัญชีอีเมลของท่านแล้วกด “ส่ง” หากไม่แน่ใจว่าใช้อะไร ให้กด “คัดลอกข้อความ” แล้วนำไปวางในอีเมลของท่านเอง</p>
         <p class="formmsg" id="formMsg" role="status" aria-live="polite"></p>
         <div class="preview" id="preview">
           <label for="f_prev" data-en="Email message (copy and paste if your email app does not open)">ข้อความอีเมล (คัดลอกไปวางเองได้ถ้าโปรแกรมอีเมลไม่เปิด)</label>
@@ -528,63 +533,61 @@ footer li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px
     el.textContent=l==='en'?d.getDate()+' '+EN_M[d.getMonth()]+' '+d.getFullYear():d.getDate()+' '+TH_M[d.getMonth()]+' '+(d.getFullYear()+543);
   }
   renderToday('th');
-  /* ---- submit form (mailto) ---- */
+  /* ---- submit form: Gmail / Outlook / mail app / copy ---- */
   var LANG='th', TO='bilan.h@phuket.psu.ac.th';
   var REQ=[['f_org','ฝ่าย/หน่วยงาน','Unit/Department'],['f_name','ชื่อผู้ติดต่อ','Contact name'],['f_email','อีเมลผู้ติดต่อ','Contact email'],['f_dash','ชื่อแดชบอร์ด','Dashboard name'],['f_link','ลิงก์แดชบอร์ด','Dashboard link'],['f_year','ปีการศึกษา','Academic year'],['f_desc','คำอธิบาย','Description']];
   function v(id){return (document.getElementById(id).value||'').trim()}
   function msg(t,cls){var m=document.getElementById('formMsg');m.textContent=t;m.className='formmsg'+(cls?' '+cls:'')}
   function T(th,en){return LANG==='en'?en:th}
+  function enc(x){return encodeURIComponent(x)}
   function validate(){
-    var bad=[],i,id,ok=true;
+    var bad=[],i,id;
     for(i=0;i<REQ.length;i++){id=REQ[i][0];var w=document.getElementById('w_'+id),good=!!v(id);
       if(id==='f_email'&&good) good=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v(id));
       if(id==='f_link'&&good){try{var u=new URL(v(id));good=u.protocol==='https:'}catch(e){good=false}}
       w.classList.toggle('bad',!good); if(!good){bad.push(T(REQ[i][1],REQ[i][2]))}}
     var okc=document.getElementById('f_ok').checked; document.getElementById('w_f_ok').classList.toggle('bad',!okc);
     if(!okc) bad.push(T('ช่องยืนยัน','Confirmation'));
-    if(bad.length){msg(T('กรุณาตรวจสอบ: ','Please check: ')+bad.join(', ')+(v('f_link')&&!/^https:\/\//i.test(v('f_link'))?T(' (ลิงก์ต้องขึ้นต้นด้วย https://)',' (the link must start with https://)'):''),'err');return null}
+    if(bad.length){msg(T('กรุณาตรวจสอบ: ','Please check: ')+bad.join(', ')+(v('f_link')&&!/^https:\/\//i.test(v('f_link'))?T(' (ลิงก์ต้องขึ้นต้นด้วย https://)',' (the link must start with https://)'):''),'err');return false}
     return true;
   }
   function compose(){
-    var subject='[ขอส่งแดชบอร์ด] '+v('f_org')+' – '+v('f_dash');
-    var body=['เรียน งานประกันคุณภาพ วิทยาลัยการคอมพิวเตอร์','','ขอส่งแดชบอร์ดเพื่อนำมาแสดงผลใน "ระบบแสดงผลข้อมูลเชิงลึกด้านการประกันคุณภาพ"','',
-      'ฝ่าย/หน่วยงาน: '+v('f_org'),'ผู้ติดต่อ: '+v('f_name'),'อีเมล: '+v('f_email'),'โทรศัพท์: '+(v('f_tel')||'-'),
-      'ชื่อแดชบอร์ด: '+v('f_dash'),'ลิงก์แดชบอร์ด: '+v('f_link'),'ปีการศึกษาของข้อมูล: '+v('f_year'),'คำอธิบาย: '+v('f_desc'),'',
-      'ยืนยันแล้วว่าไม่มีข้อมูลส่วนบุคคลที่ระบุตัวบุคคลได้ และลิงก์เปิดดูได้โดยไม่ต้องล็อกอิน','','ขอแสดงความนับถือ',v('f_name')].join('\r\n');
-    return {subject:subject,body:body};
+    return {subject:'[ขอส่งแดชบอร์ด] '+v('f_org')+' – '+v('f_dash'),
+      lines:['เรียน งานประกันคุณภาพ','ขอส่งแดชบอร์ดเพื่อแสดงผลในระบบ','',
+        'ฝ่าย/หน่วยงาน: '+v('f_org'),'ผู้ติดต่อ: '+v('f_name'),'อีเมล: '+v('f_email'),'โทร: '+(v('f_tel')||'-'),
+        'ชื่อแดชบอร์ด: '+v('f_dash'),'ลิงก์: '+v('f_link'),'ปีการศึกษา: '+v('f_year'),'คำอธิบาย: '+v('f_desc'),'',
+        'ยืนยัน: ไม่มีข้อมูลส่วนบุคคลที่ระบุตัวบุคคลได้ และเปิดดูได้โดยไม่ต้องล็อกอิน','','ขอแสดงความนับถือ',v('f_name')]};
   }
-  function showPreview(c){var pv=document.getElementById('preview');pv.style.display='block';document.getElementById('f_prev').value='ถึง: '+TO+'\nหัวเรื่อง: '+c.subject+'\n\n'+c.body.replace(/\r\n/g,'\n')}
-  document.getElementById('btnMail').addEventListener('click',function(){
+  function showPreview(c){document.getElementById('preview').style.display='block';
+    document.getElementById('f_prev').value='ถึง: '+TO+'\nหัวเรื่อง: '+c.subject+'\n\n'+c.lines.join('\n')}
+  function openWeb(url,name){
+    var w=null; try{w=window.open(url,'_blank')}catch(e){}
+    if(!w){msg(T('เบราว์เซอร์บล็อกการเปิดแท็บใหม่ กรุณาอนุญาตป๊อปอัปสำหรับหน้านี้ หรือกด “คัดลอกข้อความ” แล้วนำไปวางในอีเมลถึง ','The browser blocked the new tab. Please allow pop-ups for this page, or press “Copy message” and paste it into an email to ')+TO,'err');return}
+    msg(T('เปิดหน้าเขียนอีเมล '+name+' ในแท็บใหม่แล้ว กรุณาล็อกอินและกด “ส่ง” คำขอจะยังไม่ถึงผู้ดูแลจนกว่าจะส่งอีเมล','The '+name+' compose window opened in a new tab. Please sign in and press “Send”. The request will not reach the administrators until the email is sent.'),'ok');
+  }
+  function send(kind){
     if(!validate())return; var c=compose(); showPreview(c);
-    var a=document.createElement('a'); a.href='mailto:'+TO+'?subject='+encodeURIComponent(c.subject)+'&body='+encodeURIComponent(c.body);
-    document.body.appendChild(a); a.click(); a.remove();
-    msg(T('เปิดโปรแกรมอีเมลของท่านแล้ว กรุณากด "ส่ง" ในอีเมลอีกครั้ง คำขอจะยังไม่ถึงผู้ดูแลจนกว่าจะส่งอีเมล หากไม่มีโปรแกรมอีเมลเปิดขึ้น ให้กดคัดลอกข้อความด้านล่างไปส่งที่ ','Your email app should open. Please press "Send" in the email: the request will not reach the administrators until you send it. If nothing opens, copy the message below and send it to ')+TO,'ok');
-  });
-  document.getElementById('btnCopy').addEventListener('click',function(){
+    var body=c.lines.join('\n');
+    if(kind==='gmail') return openWeb('https://mail.google.com/mail/?view=cm&fs=1&to='+enc(TO)+'&su='+enc(c.subject)+'&body='+enc(body),'Gmail');
+    if(kind==='outlook') return openWeb('https://outlook.office.com/mail/deeplink/compose?to='+enc(TO)+'&subject='+enc(c.subject)+'&body='+enc(body),'Outlook');
+    var url='mailto:'+TO+'?subject='+enc(c.subject)+'&body='+enc(c.lines.join('\r\n'));
+    if(url.length>1900){msg(T('ข้อความยาวเกินกว่าโปรแกรมอีเมลในเครื่องจะรับได้ กรุณาใช้ Gmail, Outlook หรือกด “คัดลอกข้อความ” แทน','The message is too long for an email app on this device. Please use Gmail, Outlook, or “Copy message” instead.'),'err');return}
+    var a=document.createElement('a'); a.href=url; document.body.appendChild(a); a.click(); a.remove();
+    msg(T('ส่งคำสั่งเปิดโปรแกรมอีเมลในเครื่องแล้ว หากไม่มีอะไรเปิดขึ้น แสดงว่าเครื่องนี้ยังไม่ได้ตั้งโปรแกรมอีเมลเริ่มต้น กรุณาใช้ Gmail, Outlook หรือคัดลอกข้อความ','A command to open the email app was sent. If nothing opens, this device has no default email app set up. Please use Gmail, Outlook, or copy the message.'),'ok');
+  }
+  function copyMsg(){
     if(!validate())return; var c=compose(); showPreview(c);
-    var txt=document.getElementById('f_prev').value, done=function(){msg(T('คัดลอกข้อความแล้ว นำไปวางในอีเมลถึง ','Copied. Paste it into an email to ')+TO,'ok')},
-        fb=function(){var t=document.getElementById('f_prev');t.select();try{document.execCommand('copy')?done():msg(T('คัดลอกอัตโนมัติไม่สำเร็จ กรุณาเลือกข้อความด้านล่างแล้วคัดลอกเอง','Could not copy automatically. Please select the text below and copy it.'),'err')}catch(e){msg(T('คัดลอกอัตโนมัติไม่สำเร็จ กรุณาเลือกข้อความด้านล่างแล้วคัดลอกเอง','Could not copy automatically. Please select the text below and copy it.'),'err')}};
+    var txt=document.getElementById('f_prev').value,
+        done=function(){msg(T('คัดลอกข้อความแล้ว นำไปวางในอีเมลถึง ','Copied. Paste it into an email to ')+TO,'ok')},
+        fail=function(){msg(T('คัดลอกอัตโนมัติไม่สำเร็จ กรุณาเลือกข้อความในกล่องด้านล่างแล้วคัดลอกเอง','Could not copy automatically. Please select the text in the box below and copy it.'),'err')},
+        fb=function(){var t=document.getElementById('f_prev');t.select();try{document.execCommand('copy')?done():fail()}catch(e){fail()}};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fb)}else{fb()}
-  });
-
-  $('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
-  var cards=$('a.card[data-year]');
-  function renderStats(l){
-    var yrs=cards.map(function(c){return +c.dataset.year}).filter(function(n){return n>0}),
-        latest=yrs.length?Math.max.apply(null,yrs):0,
-        total=cards.reduce(function(a,c){return a+(+c.dataset.n||0)},0);
-    document.getElementById('count').textContent=cards.length;
-    document.getElementById('latestYear').textContent=latest?(l==='en'?latest-543:latest):'-';
-    document.getElementById('totalN').textContent=total.toLocaleString(l==='en'?'en-US':'th-TH');
   }
-  renderStats('th');
-  document.getElementById('ctaAll').hidden=cards.length<=2;
-  document.getElementById('rtools').hidden=cards.length<=6;
-  document.getElementById('q').addEventListener('input',function(){
-    var t=this.value.trim().toLowerCase(),shown=0;
-    cards.forEach(function(c){var ok=!t||c.textContent.toLowerCase().indexOf(t)>-1;c.style.display=ok?'':'none';if(ok)shown++});
-    document.getElementById('noMatch').hidden=!!shown;
-  });
+  document.getElementById('btnGmail').addEventListener('click',function(){send('gmail')});
+  document.getElementById('btnOutlook').addEventListener('click',function(){send('outlook')});
+  document.getElementById('btnMail').addEventListener('click',function(){send('mailto')});
+  document.getElementById('btnCopy').addEventListener('click',copyMsg);
+
   var b=document.getElementById('burger'), l=document.getElementById('links');
   b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   l.addEventListener('click',function(){l.classList.remove('open');b.setAttribute('aria-expanded','false')});
