@@ -229,6 +229,8 @@ footer li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px
 .fbar a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
 
 @media (max-width:1180px){
+  .lang{margin-left:auto}
+  .burger{margin-left:0}
   .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--navy-deep);padding:8px 24px 16px;margin:0}
   .links.open{display:flex}
   .burger{display:block}
@@ -253,6 +255,11 @@ footer li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px
   .fgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 28px}
   .fbrand{grid-column:1/-1}
   .fbar .wrap{display:flex;flex-wrap:wrap;justify-content:space-between}
+}
+@media (max-width:480px){
+  .brand > div{display:none}
+  .nav .wrap{gap:12px}
+  .brand img{height:44px}
 }
 @media (max-width:560px){
   .stat{flex-direction:column;align-items:flex-start;gap:10px}
@@ -294,7 +301,7 @@ footer li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px
     <div>
       <p class="org"><span class="bar" aria-hidden="true"></span><span data-en="College of Computing · Prince of Songkla University, Phuket Campus"><span class="nb">วิทยาลัยการคอมพิวเตอร์</span> <span class="nb">มหาวิทยาลัยสงขลานครินทร์</span> <span class="nb">วิทยาเขตภูเก็ต</span></span></p>
       <h1 data-en="Quality Assurance Insights System"><span class="nb">ระบบแสดงผลข้อมูลเชิงลึก</span> <span class="nb">ด้านการประกันคุณภาพ</span></h1>
-      <p class="lead" data-en="Clear results. Track quality across every academic year.">เห็นผลลัพธ์ชัด ติดตามคุณภาพได้ทุกปีการศึกษา</p>
+      <p class="lead" data-en="Clear results. Track quality across every academic year.">เห็นผลลัพธ์ชัด ติดตามคุณภาพได้<span class="nb">ทุกปีการศึกษา</span></p>
       <div class="cta">
         <a style="--a:#1e3a5f" href="https://bilanh-jpg.github.io/Graduate-Employment-CoC-2025/" target="_blank" rel="noopener">
           <strong data-en="Graduate Employment Survey">ภาวะการมีงานทำของบัณฑิต</strong>
@@ -588,7 +595,25 @@ footer li a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px
   document.getElementById('btnMail').addEventListener('click',function(){send('mailto')});
   document.getElementById('btnCopy').addEventListener('click',copyMsg);
 
-  var b=document.getElementById('burger'), l=document.getElementById('links');
+    $('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+  var cards=$('a.card[data-year]');
+  function renderStats(l){
+    var yrs=cards.map(function(c){return +c.dataset.year}).filter(function(n){return n>0}),
+        latest=yrs.length?Math.max.apply(null,yrs):0,
+        total=cards.reduce(function(a,c){return a+(+c.dataset.n||0)},0);
+    document.getElementById('count').textContent=cards.length;
+    document.getElementById('latestYear').textContent=latest?(l==='en'?latest-543:latest):'-';
+    document.getElementById('totalN').textContent=total.toLocaleString(l==='en'?'en-US':'th-TH');
+  }
+  renderStats('th');
+  document.getElementById('ctaAll').hidden=cards.length<=2;
+  document.getElementById('rtools').hidden=cards.length<=6;
+  document.getElementById('q').addEventListener('input',function(){
+    var t=this.value.trim().toLowerCase(),shown=0;
+    cards.forEach(function(c){var ok=!t||c.textContent.toLowerCase().indexOf(t)>-1;c.style.display=ok?'':'none';if(ok)shown++});
+    document.getElementById('noMatch').hidden=!!shown;
+  });
+    var b=document.getElementById('burger'), l=document.getElementById('links');
   b.addEventListener('click',function(){var o=l.classList.toggle('open');b.setAttribute('aria-expanded',o)});
   l.addEventListener('click',function(){l.classList.remove('open');b.setAttribute('aria-expanded','false')});
 
